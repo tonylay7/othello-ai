@@ -16,7 +16,9 @@
 ## 🤖 Explanation of Minimax
 
 ### What is Minimax?
-Minimax is a decision rule used in a variety of applications (artificial intelligence, game theory, statistic etc) which aims to minimise the possible loss whilst also maximising the possible gain for a worst-case scenario. The minimax algorithm is a recursive algorithm which applies this rule, and the goal of the algorithm is to choose the best move out of its calculated possible set of moves. What is determined as the 'best' move is dictated by the value of the move - this value is retrieved by some position evaluation function which essentially indicates how good it would be for a player to reach that position.
+- Minimax is a decision rule used in a variety of applications (artificial intelligence, game theory, statistic etc) which aims to minimise the possible loss whilst also maximising the possible gain for a worst-case scenario.
+- The minimax algorithm is a recursive algorithm which applies this rule, and the goal of the algorithm is to choose the best move out of its calculated possible set of moves. 
+- What is determined as the 'best' move is dictated by the value of the move - this value is retrieved by some position evaluation function which essentially indicates how good it would be for a player to reach that position.
 
 ### How the Minimax Algorithm is used in this game
 The Minimax Algorithm is used as the decision-making procedure for the AI that the player plays against. The human player plays with the black pieces and is referred to as the 'minimising player' - this player aims to make moves such that the position evaluation function returns the lowest possible value (i.e. 'minimising' the evaluation) whilst the AI plays as the 'maximising player', and aims to maximise the evaluation to make it return the highest possible value. In abstract terms, the AI needs to look into the future, enumerate all the possible future moves up to N possible moves (referred to as 'depth of search') and then make moves based on what it has hypothesized in its future. It is similar to looking ahead in a game of chess.
