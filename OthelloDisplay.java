@@ -37,7 +37,7 @@ public class OthelloDisplay extends JFrame implements MouseListener{
         yBoardstart= 2*yMargin;
         resultString= "";
 
-        setTitle("emag isrever s'HP naI");
+        setTitle("Othello");
         
         setSize(winXSize,winYSize);
         setLocation(Othello.xBOARDpos, Othello.yBOARDpos);

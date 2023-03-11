@@ -7,20 +7,17 @@ import java.util.ArrayList;
 public class BoardState {
     
     
-    private int[][] board;
-    public int colour;
+    private int[][] board; // Current contents of the board
+    public int colour; // Current player
     
     
     public BoardState(){
-        
-        // Create board
         board= new int[8][8];
     }
     
     
-    // Clone the current object
+    // Create a deep copy of the board state
     public BoardState deepCopy(){
-        
         BoardState newBoardState= new BoardState();
         for(int i= 0; i< 8; i++)
             for(int j= 0; j < 8; j++)
@@ -29,22 +26,19 @@ public class BoardState {
         return newBoardState;
     }
     
-    
+    // Retrieve the colour at coordinates (x,y)
     public int getContents(int x, int y){
-        
         return board[x][y]; 
     }
     
+    // Set a colour at coordinates (x,y)
     public void setContents(int x, int y, int piece){
         
         board[x][y]= piece;
     }
     
-    // Under construction Assumes coordinates are in order.
-    
-    
+    // Check if the piece at the specified coordinates (x,y) is on the board
     private boolean checkOnBoard(int x, int y){
-        
         return (x >=0) && (x < 8) &&  (y >=0) && (y < 8);
     }
     
@@ -61,10 +55,8 @@ public class BoardState {
        return ans;       
    }
     
-   
    // Tests whether the game is over
     public boolean gameOver(){
-    
         boolean ans= false;
         if(getLegalMoves().isEmpty()){
             colour= -colour;              // change colour temporarily
@@ -76,6 +68,7 @@ public class BoardState {
     }
     
     
+    // Check that the move at coordinate (x,y) is legal
     public boolean checkLegalMove(int x, int y){       
         return 
             checkOnBoard(x,y) && (getContents(x,y) == 0) &&    
@@ -85,13 +78,10 @@ public class BoardState {
                         (checkDownLeft(x, y) != -1) || (checkDownRight(x, y) != -1));
     }
     
-   
+    // Make a move at coordinate (x,y)
     public void makeLegalMove(int x, int y){
-        
-        int a,b; // work variables (indices)
-        
-        // Current square
-        // setContents(x, y, colour);
+        // Indices
+        int a,b;
         
         // Squares to left
         a= checkLeft(x, y);  
@@ -144,11 +134,9 @@ public class BoardState {
         if(a != -1)
             for(int i=x, j= y; i < a; i++,j++)
                 setContents(i,j, colour); 
-        colour= -colour;                         // Change player
-        
-        
-        // Now the computer moves 
-        
+
+        // Change player
+        colour= -colour;                         
     }
     
     
@@ -213,7 +201,7 @@ public class BoardState {
         
         int i= x-1;
         int j= y-1;
-        while((i > 0) && (j > 0) && (getContents(i,j) == -colour)){  //check almost to start
+        while((i > 0) && (j > 0) && (getContents(i,j) == -colour)){  //C heck almost to start
             i--;
             j--;
         }
@@ -248,7 +236,7 @@ public class BoardState {
         
         int i= x-1;
         int j= y+1;
-        while((i > 0) && (j <7) && (getContents(i,j) == -colour)){  //check almost to start
+        while((i > 0) && (j <7) && (getContents(i,j) == -colour)){  // Check almost to start
             i--;
             j++;
         }
@@ -293,8 +281,7 @@ public class BoardState {
     }
 
     public int[] totUp(){
-        
-        int[] ans= new int[2]; // white count then black count
+        int[] ans= new int[2]; // White score and Black score
         int white= 0;
         int black= 0;
         for(int i= 0; i < 8; i++)
@@ -303,12 +290,12 @@ public class BoardState {
                     white++;
                 else if(getContents(i,j)==-1)
                     black++;
-	ans[0]= white;
-	ans[1]= black;
+        ans[0]= white;
+        ans[1]= black;
         return ans;
     }
 
-    // Return result as integer: <0 black win; 0 draw; >0 white win
+    // Return result as integer: < 0 black win; 0 draw; > 0 white win
     public int result(){
 	int[] scores= totUp();  // result vector for when game over	
 	return scores[0]-scores[1];
