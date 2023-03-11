@@ -29,7 +29,7 @@ The algorithm has a depth parameter D which dictates how 'far' the algorithm is 
 ### Position evaluation function
 The value of a move is given by a position evaluation function. In this implementation, an 8x8 static evaluation table is used as a crude but simple approach to the 'current state of the board'. Each position in the table contains a fixed value (essentially a 'weight) , which represents how good or bad it is for a piece to hold this position on the board.
 
-[Evaluation Table](media/evalfunction.jpg)
+![Evaluation Table](media/evalfunction.jpg)
 
 The intuition behind this table of values is as follows:
 
