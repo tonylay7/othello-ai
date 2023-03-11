@@ -1,2 +1,15 @@
-# othello-ai
-A single-player Java implementation of the Othello board game with an AI that has its decision-making powered by the minimax algorithm
+# Othello AI Minimax Implementation in Java
+## Table of Contents
+
+  * [🗺️ Overview](#%EF%B8%8F-overview)
+   * [🤖 What is Minimax?](#%EF%B8%8F-design-and-test-verification)
+  * [⚙️ Setup and How to Play](#%EF%B8%8F-specification-and-how-it-works)
+  
+
+## 🗺️ Overview
+
+## 🤖 What is Minimax?
+
+## ⚙️ Setup and How to Play
+
+
